@@ -1,3 +1,4 @@
+float noiseSeed = 0;
 float noiseInput = 0;
 float ampScalar;
 
@@ -22,12 +23,12 @@ void draw(){
   pushMatrix();
   translate(width/2, height/2);
   
-  int bandsDivisor = 8;
   int barScale = 150;
   
   rotate(metaRotation);
   float rotateAmount = radians(1);
   
+  noiseInput = noiseSeed;
   for(int i = 0; i < 360; i++){
     // float ampScale = map(ampScalar, 0, 0.3, 1, 3);
     // float len = constrain(map(spectrum[i], 0, 0.15, 0, barScale * ampScale), 0, 350);
@@ -44,15 +45,15 @@ void draw(){
     
     line(100, 0, 100+len, 0);
     rotate(rotateAmount);
-    noiseInput += 0.01;
+    noiseInput += 0.06;
   }
   
   
-
-  stroke(180, 100, 100);
-  circle(0, 0, 200);
+  strokeWeight(4);
+  stroke(180, 100, 0);
+  // circle(0, 0, 200);
   popMatrix();
   
-  
-  metaRotation += radians(0.1);
+  noiseSeed += 0.01;
+  // metaRotation += radians(0.1);
 }

@@ -27,7 +27,7 @@ class Ring{
       strokeWeight(6);
       
       if(points[i] >= 0.5){
-        float hue = map(points[i], 0.5, 1.0, 180, 340);
+        float hue = map(points[i], 0.5, 1.0, 180, 360);
         stroke(hue, 100, 100);
         point(0, -radius);
       }
